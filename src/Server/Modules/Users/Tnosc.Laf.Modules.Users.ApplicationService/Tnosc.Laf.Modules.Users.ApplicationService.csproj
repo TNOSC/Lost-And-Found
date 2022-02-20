@@ -14,8 +14,4 @@
     <ProjectReference Include="..\Tnosc.Laf.Modules.Users.Shared\Tnosc.Laf.Modules.Users.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-  </ItemGroup>
-
 </Project>
