@@ -1,14 +1,14 @@
 ﻿using System.Text.Json.Serialization;
 using Tnosc.Laf.Shared.Common;
 
-namespace Tnosc.Laf.Shared.ApiWrapper
+namespace Tnosc.Laf.Shared.ApiWrapper.Responses
 {
     /// <summary>
-    /// <para>Applys the pagination during getting finded objects</para>
+    /// <para>Abstract class to define a server response for getting a ressource request using pagination strongly typed</para>
     /// <para>Author: Ahmed HEDFI (ahmed.hedfi@gmail.com)</para>
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public abstract class PaginatedFindResponse<T> : FindResponse<T>
+    /// <typeparam name="T">Data transfer object which implements the interface <see cref="IDto"/></typeparam>
+    public abstract class GetPaginatedResponse<T> : GetResponse<T>
         where T : IDto
     {
         /// <summary>
@@ -16,11 +16,12 @@ namespace Tnosc.Laf.Shared.ApiWrapper
         /// </summary>
         /// <param name="totalCount"></param>
         /// <param name="values"></param>
-        protected PaginatedFindResponse(int totalCount, IEnumerable<T> values)
+        protected GetPaginatedResponse(int totalCount, IEnumerable<T> values)
             : base(values)
         {
             TotalCount = totalCount;
         }
+
         /// <summary>
         /// Gets the total number of the finded objects
         /// </summary>

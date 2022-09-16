@@ -1,36 +1,40 @@
 ﻿using System.Text.Json.Serialization;
 using Tnosc.Laf.Shared.Common;
 
-namespace Tnosc.Laf.Shared.ApiWrapper
+namespace Tnosc.Laf.Shared.ApiWrapper.Requests
 {
     /// <summary>
     /// <para>Abstract class to define a client request</para>
     /// <para>Author: Ahmed HEDFI (ahmed.hedfi@gmail.com)</para>
     /// </summary>
-    public abstract class RequestBase 
+    public abstract class RequestBase
     {
         /// <summary>
         /// Default constructor
         /// </summary>
         protected RequestBase()
         {
-            Guid = Guid.NewGuid();
+            CorrelationId = Guid.NewGuid();
         }
+
         /// <summary>
         /// Tracks a request by assigning a Guid
         /// </summary>
         [JsonIgnore]
-        public Guid Guid { get; set; }
+        public Guid CorrelationId { get; set; }
+
         /// <summary>
         /// Gets or sets the Ip Address of the connected user
         /// </summary>
         [JsonIgnore]
         public string IpAddress { get; set; }
+
         /// <summary>
         /// Gets or sets the identity of the connected user
         /// </summary>
         [JsonIgnore]
-        public ICurrentUser Owner { get; set; }
+        public ICurrentUser CurrentUser { get; set; }
+
         /// <summary>
         /// Gets or sets a refresh token
         /// </summary>
@@ -53,4 +57,5 @@ namespace Tnosc.Laf.Shared.ApiWrapper
         where T : IDto
     {
     }
+
 }

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Tnosc.Laf.Shared.Common;
 
-namespace Tnosc.Laf.Shared.ApiWrapper
+namespace Tnosc.Laf.Shared.ApiWrapper.Responses
 {
     /// <summary>
     /// <para>Abstract class to define a server response to client request</para>
@@ -33,7 +33,7 @@ namespace Tnosc.Laf.Shared.ApiWrapper
         /// </summary>
         /// <param name="error">error message</param>
         protected ResponseBase(string error)
-            : this(new string[] { error})
+            : this(new string[] { error })
         {
 
         }
@@ -43,8 +43,7 @@ namespace Tnosc.Laf.Shared.ApiWrapper
         protected ResponseBase()
         {
             TimeGenerated = DateTime.Now;
-            var lists = new List<string>();
-            Errors = lists;
+            Errors = new List<string>();
         }
         /// <summary>
         /// Gets or sets error messages
@@ -111,6 +110,7 @@ namespace Tnosc.Laf.Shared.ApiWrapper
                     : base(result)
         {
         }
+
         /// <summary>
         /// Default constructor
         /// </summary>
