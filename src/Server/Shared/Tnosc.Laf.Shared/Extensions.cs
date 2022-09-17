@@ -8,7 +8,7 @@ namespace Tnosc.Laf.Shared
 {
     public static class Extensions
     {
-        private const string ApiTitle = "NPay API";
+        private const string ApiTitle = "Lost & Found API";
         private const string ApiVersion = "v1";
 
         public static IServiceCollection AddSharedFramework(this IServiceCollection services, IConfiguration configuration)
